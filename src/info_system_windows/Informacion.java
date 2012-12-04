@@ -10,8 +10,13 @@
  */
 package info_system_windows;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import org.hyperic.sigar.CpuInfo;
 import org.hyperic.sigar.CpuPerc;
@@ -33,8 +38,10 @@ public class Informacion extends javax.swing.JFrame {
             initComponents();
             imprimirInfoCPU();
             imprimirInfoRAM();
+            InformacionParticiones();
             informaciongeneralwindows();
             imprimirtiempo();
+            verProcesos();
         } catch (SigarException ex) {
             Logger.getLogger(Informacion.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -48,8 +55,14 @@ public class Informacion extends javax.swing.JFrame {
     jTextAreaInfoGeneral.append("Arquitectura del SO:\t" + sys.getArch()+"\n");
     jTextAreaInfoGeneral.append("Version del SO:\t\t" + sys.getVersion()+"\n");
     jTextAreaInfoGeneral.append("Fabricante:\t\t" + sys.getVendor()+"\n");
-    jTextAreaInfoGeneral.append("Version SO:\t\t" + sys.getVendorVersion()+"\n\n");
+    jTextAreaInfoGeneral.append("Version SO:\t\t" + sys.getVendorVersion()+"\n");
+    jTextAreaInfoGeneral.append("Version JDK:\t\t" + JDK()+"\n\n");
+    jLabel1.setText("Nombre de Usuario: "+System.getProperty("user.name"));
     
+    }
+    public static String JDK()
+    {
+         return System.getProperty("java.version");      
     }
     
     public void imprimirtiempo() throws SigarException {
@@ -123,7 +136,37 @@ public class Informacion extends javax.swing.JFrame {
     private Long enBytes(long valor) {
         return new Long((valor / 1024)/1024);
     }
-
+    
+    public void InformacionParticiones(){
+        for(File root : File.listRoots())
+{
+if(root.canWrite())
+{
+jTextAreaParticiones.append("root: " + root.getAbsolutePath()+"\n");
+}
+}
+    }
+    
+//muestra los procesos en ejecucion    
+private void verProcesos(){
+        try {
+            // LLAMAMOS LA VARIABLE DE ENTORNO WINDOWS Y EL PROGRAMA QUE GESTION LOS PROCESOS
+            String consola = System.getenv("windir")+"\\System32\\"+"tasklist.exe";
+            // Ejecutamos el comando
+            Process proceso=Runtime.getRuntime().exec(consola);
+            //OBTENEMOS EL BUFFER DE SALIDA
+            BufferedReader entrada = new BufferedReader(new InputStreamReader(proceso.getInputStream()));
+            String tmp;
+            while((tmp=entrada.readLine())!=null){
+                    jTextAreaProcesos.append(tmp + "\n");
+                    
+            }
+            entrada.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Informacion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+		
+	}
     
     /** This method is called from within the constructor to
      * initialize the form.
@@ -145,6 +188,16 @@ public class Informacion extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextAreaInfoRAM = new javax.swing.JTextArea();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextAreaParticiones = new javax.swing.JTextArea();
+        jPanel5 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTextAreaProcesos = new javax.swing.JTextArea();
+        labelNombreProceso = new javax.swing.JLabel();
+        textNombreProceso = new javax.swing.JTextField();
+        buttonMatar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -158,7 +211,7 @@ public class Informacion extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextAreaInfoGeneral);
 
         jLabel1.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
-        jLabel1.setText("Informacón General:");
+        jLabel1.setText("Información General:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -166,19 +219,16 @@ public class Informacion extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
-                    .addComponent(jLabel1))
-                .addContainerGap())
+                .addComponent(jLabel1)
+                .addContainerGap(390, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(77, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Información General", jPanel1);
@@ -200,7 +250,7 @@ public class Informacion extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -223,11 +273,88 @@ public class Informacion extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         jTabbedPane1.addTab("Información de Memoria RAM", jPanel3);
+
+        jTextAreaParticiones.setColumns(20);
+        jTextAreaParticiones.setRows(5);
+        jScrollPane4.setViewportView(jTextAreaParticiones);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Particiones", jPanel4);
+
+        jTextAreaProcesos.setColumns(20);
+        jTextAreaProcesos.setRows(5);
+        jScrollPane5.setViewportView(jTextAreaProcesos);
+
+        labelNombreProceso.setText("Nombre del proceso:");
+
+        buttonMatar.setText("Matar");
+        buttonMatar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonMatarActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14));
+        jLabel2.setText("Matar Proceso");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(labelNombreProceso)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(textNombreProceso, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(buttonMatar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel2)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textNombreProceso)
+                    .addComponent(buttonMatar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelNombreProceso, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE))
+                .addGap(62, 62, 62))
+        );
+
+        jTabbedPane1.addTab("Procesos", jPanel5);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -239,7 +366,7 @@ public class Informacion extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE))
         );
 
         pack();
@@ -248,6 +375,30 @@ public class Informacion extends javax.swing.JFrame {
 private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
  
 }//GEN-LAST:event_formWindowActivated
+
+private void buttonMatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMatarActionPerformed
+
+        String osName = System.getProperty("os.name");
+        String system =  "";
+        if(osName.toUpperCase().contains("WIN")){ 
+            system+="taskkill.exe /PID " + textNombreProceso.getText();
+        }
+        Process hijo;
+        try {
+            hijo = Runtime.getRuntime().exec(system);
+            hijo.waitFor();
+            if ( hijo.exitValue()==0){
+                JOptionPane.showMessageDialog(rootPane, "Se ha terminado el proceso: " +"\t"+ textNombreProceso.getText());
+            }else{
+                JOptionPane.showMessageDialog(rootPane,"No se pudo terminar el proceso: "+"\t" + textNombreProceso.getText() + ". Exit code: " + hijo.exitValue());
+            }
+        } catch (IOException e) {
+            System.out.println("Incapaz de matar soffice. " + e.getMessage() + " " + system);
+        } catch (InterruptedException e) {
+            System.out.println("Incapaz de matar soffice.");
+        }      
+}//GEN-LAST:event_buttonMatarActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -285,16 +436,26 @@ private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:ev
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonMatar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextAreaInfoCPU;
     private javax.swing.JTextArea jTextAreaInfoGeneral;
     private javax.swing.JTextArea jTextAreaInfoRAM;
+    private javax.swing.JTextArea jTextAreaParticiones;
+    private javax.swing.JTextArea jTextAreaProcesos;
+    private javax.swing.JLabel labelNombreProceso;
+    private javax.swing.JTextField textNombreProceso;
     // End of variables declaration//GEN-END:variables
 }
