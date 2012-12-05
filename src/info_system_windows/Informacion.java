@@ -41,6 +41,7 @@ public class Informacion extends javax.swing.JFrame {
             InformacionParticiones();
             informaciongeneralwindows();
             imprimirtiempo();
+            verInformacionRed();
             verProcesos();
         } catch (SigarException ex) {
             Logger.getLogger(Informacion.class.getName()).log(Level.SEVERE, null, ex);
@@ -83,6 +84,25 @@ public class Informacion extends javax.swing.JFrame {
         jTextAreaInfoGeneral.append("Encendido durante:\t" + resultado);
     } 
  
+     private void verInformacionRed(){
+        try {
+           
+            String red = System.getenv("windir")+"\\System32\\"+"IPCONFIG.exe";
+          
+            Process infored=Runtime.getRuntime().exec(red);
+          
+            BufferedReader entrada = new BufferedReader(new InputStreamReader(infored.getInputStream()));
+            String tmp;
+            while((tmp=entrada.readLine())!=null){
+                    jTextAreaInformacionDeRed.append(tmp + "\n");
+                    
+            }
+            entrada.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Informacion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     }
+    
     public void imprimirInfoCPU() {
         sigar = new Sigar();
         CpuInfo[] infos = null;
@@ -198,6 +218,9 @@ private void verProcesos(){
         textNombreProceso = new javax.swing.JTextField();
         buttonMatar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTextAreaInformacionDeRed = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -289,8 +312,8 @@ private void verProcesos(){
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(102, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -315,7 +338,7 @@ private void verProcesos(){
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Matar Proceso");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -356,11 +379,33 @@ private void verProcesos(){
 
         jTabbedPane1.addTab("Procesos", jPanel5);
 
+        jTextAreaInformacionDeRed.setColumns(20);
+        jTextAreaInformacionDeRed.setRows(5);
+        jScrollPane6.setViewportView(jTextAreaInformacionDeRed);
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(57, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Informacion de Red", jPanel6);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -444,15 +489,18 @@ private void buttonMatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextAreaInfoCPU;
     private javax.swing.JTextArea jTextAreaInfoGeneral;
     private javax.swing.JTextArea jTextAreaInfoRAM;
+    private javax.swing.JTextArea jTextAreaInformacionDeRed;
     private javax.swing.JTextArea jTextAreaParticiones;
     private javax.swing.JTextArea jTextAreaProcesos;
     private javax.swing.JLabel labelNombreProceso;
