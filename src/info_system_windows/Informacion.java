@@ -2054,8 +2054,8 @@ private void jMenuItem19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
-        setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
-        lookAdFeel = "javax.swing.plaf.nimbus.NimbusLookAndFeel";
+        setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
+        lookAdFeel = "com.sun.java.swing.plaf.motif.MotifLookAndFeel";
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void guardar() {
