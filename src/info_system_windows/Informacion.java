@@ -10,6 +10,7 @@
  */
 package info_system_windows;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.io.BufferedReader;
 import java.io.File;
@@ -19,6 +20,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JColorChooser;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
@@ -414,11 +416,28 @@ private void verProcesos(){
         jMenu10 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu11 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItemNegro1 = new javax.swing.JMenuItem();
+        jMenuItemMocasin = new javax.swing.JMenuItem();
+        jMenuItemRojoOscuro1 = new javax.swing.JMenuItem();
+        jMenuItemCardo = new javax.swing.JMenuItem();
+        jMenuItemBeige = new javax.swing.JMenuItem();
+        jMenuItemAzulClaro1 = new javax.swing.JMenuItem();
+        jMenuItemAqua = new javax.swing.JMenuItem();
+        jMenuItemGris = new javax.swing.JMenuItem();
+        jMenuItemVerdeOliva = new javax.swing.JMenuItem();
+        jMenuItemColores2 = new javax.swing.JMenuItem();
         jMenu13 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItemNegroText = new javax.swing.JMenuItem();
+        jMenuItemRojo1 = new javax.swing.JMenuItem();
+        jMenuItemAqua1 = new javax.swing.JMenuItem();
+        jMenuItemNaranja1 = new javax.swing.JMenuItem();
+        jMenuItemAmarillo1 = new javax.swing.JMenuItem();
+        jMenuItemCafeClaro = new javax.swing.JMenuItem();
+        jMenuItemMarronRosaseo = new javax.swing.JMenuItem();
+        jMenuItemVerde1 = new javax.swing.JMenuItem();
+        jMenuItemVerdeClaro1 = new javax.swing.JMenuItem();
+        jMenuItemSalmon = new javax.swing.JMenuItem();
+        jMenuItemMasColores1 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
@@ -950,22 +969,199 @@ private void verProcesos(){
         jMenu11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenesbt/tipo de color.jpg"))); // NOI18N
         jMenu11.setText("Color de fondos");
 
-        jMenuItem4.setText("jMenuItem4");
-        jMenu11.add(jMenuItem4);
+        jMenuItemNegro1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconosColores/negro.png"))); // NOI18N
+        jMenuItemNegro1.setText("Negro");
+        jMenuItemNegro1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemNegro1ActionPerformed(evt);
+            }
+        });
+        jMenu11.add(jMenuItemNegro1);
 
-        jMenuItem5.setText("jMenuItem5");
-        jMenu11.add(jMenuItem5);
+        jMenuItemMocasin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconosColores/mocasin.png"))); // NOI18N
+        jMenuItemMocasin.setText("Mocasin");
+        jMenuItemMocasin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemMocasinActionPerformed(evt);
+            }
+        });
+        jMenu11.add(jMenuItemMocasin);
+
+        jMenuItemRojoOscuro1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconosColores/rojo_os.png"))); // NOI18N
+        jMenuItemRojoOscuro1.setText("Rojo Oscuro");
+        jMenuItemRojoOscuro1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemRojoOscuro1ActionPerformed(evt);
+            }
+        });
+        jMenu11.add(jMenuItemRojoOscuro1);
+
+        jMenuItemCardo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconosColores/cardio.png"))); // NOI18N
+        jMenuItemCardo.setText("Cardo");
+        jMenuItemCardo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCardoActionPerformed(evt);
+            }
+        });
+        jMenu11.add(jMenuItemCardo);
+
+        jMenuItemBeige.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconosColores/beige.png"))); // NOI18N
+        jMenuItemBeige.setText("Beige");
+        jMenuItemBeige.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemBeigeActionPerformed(evt);
+            }
+        });
+        jMenu11.add(jMenuItemBeige);
+
+        jMenuItemAzulClaro1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconosColores/azul_cl.png"))); // NOI18N
+        jMenuItemAzulClaro1.setText("Azul Claro");
+        jMenuItemAzulClaro1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAzulClaro1ActionPerformed(evt);
+            }
+        });
+        jMenu11.add(jMenuItemAzulClaro1);
+
+        jMenuItemAqua.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconosColores/aqua.png"))); // NOI18N
+        jMenuItemAqua.setText("Aqua");
+        jMenuItemAqua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAquaActionPerformed(evt);
+            }
+        });
+        jMenu11.add(jMenuItemAqua);
+
+        jMenuItemGris.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconosColores/gris.png"))); // NOI18N
+        jMenuItemGris.setText("Gris");
+        jMenuItemGris.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemGrisActionPerformed(evt);
+            }
+        });
+        jMenu11.add(jMenuItemGris);
+
+        jMenuItemVerdeOliva.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconosColores/verde_oliva.png"))); // NOI18N
+        jMenuItemVerdeOliva.setText("Verde Oliva");
+        jMenuItemVerdeOliva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemVerdeOlivaActionPerformed(evt);
+            }
+        });
+        jMenu11.add(jMenuItemVerdeOliva);
+
+        jMenuItemColores2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconosColores/pick_color.png"))); // NOI18N
+        jMenuItemColores2.setText("Mas Colores");
+        jMenuItemColores2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemColores2ActionPerformed(evt);
+            }
+        });
+        jMenu11.add(jMenuItemColores2);
 
         jMenu6.add(jMenu11);
 
         jMenu13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenesbt/tipo de letra.jpg"))); // NOI18N
         jMenu13.setText("Color de texto");
 
-        jMenuItem6.setText("jMenuItem6");
-        jMenu13.add(jMenuItem6);
+        jMenuItemNegroText.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconosColores/negro.png"))); // NOI18N
+        jMenuItemNegroText.setText("Negro");
+        jMenuItemNegroText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemNegroTextActionPerformed(evt);
+            }
+        });
+        jMenu13.add(jMenuItemNegroText);
 
-        jMenuItem7.setText("jMenuItem7");
-        jMenu13.add(jMenuItem7);
+        jMenuItemRojo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconosColores/rojo.png"))); // NOI18N
+        jMenuItemRojo1.setText("Rojo");
+        jMenuItemRojo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemRojo1ActionPerformed(evt);
+            }
+        });
+        jMenu13.add(jMenuItemRojo1);
+
+        jMenuItemAqua1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconosColores/aqua.png"))); // NOI18N
+        jMenuItemAqua1.setText("Aqua");
+        jMenuItemAqua1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAqua1ActionPerformed(evt);
+            }
+        });
+        jMenu13.add(jMenuItemAqua1);
+
+        jMenuItemNaranja1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconosColores/naranja.png"))); // NOI18N
+        jMenuItemNaranja1.setText("Naranja");
+        jMenuItemNaranja1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemNaranja1ActionPerformed(evt);
+            }
+        });
+        jMenu13.add(jMenuItemNaranja1);
+
+        jMenuItemAmarillo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconosColores/amarillo.png"))); // NOI18N
+        jMenuItemAmarillo1.setText("Amarillo");
+        jMenuItemAmarillo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAmarillo1ActionPerformed(evt);
+            }
+        });
+        jMenu13.add(jMenuItemAmarillo1);
+
+        jMenuItemCafeClaro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconosColores/cafe.png"))); // NOI18N
+        jMenuItemCafeClaro.setText("Cafe Claro");
+        jMenuItemCafeClaro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCafeClaroActionPerformed(evt);
+            }
+        });
+        jMenu13.add(jMenuItemCafeClaro);
+
+        jMenuItemMarronRosaseo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconosColores/marron_rosaseo.png"))); // NOI18N
+        jMenuItemMarronRosaseo.setText("Marron Rosaseo");
+        jMenuItemMarronRosaseo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemMarronRosaseoActionPerformed(evt);
+            }
+        });
+        jMenu13.add(jMenuItemMarronRosaseo);
+
+        jMenuItemVerde1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconosColores/verde.png"))); // NOI18N
+        jMenuItemVerde1.setText("Verde");
+        jMenuItemVerde1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemVerde1ActionPerformed(evt);
+            }
+        });
+        jMenu13.add(jMenuItemVerde1);
+
+        jMenuItemVerdeClaro1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconosColores/verde_cl.png"))); // NOI18N
+        jMenuItemVerdeClaro1.setText("Verde Claro");
+        jMenuItemVerdeClaro1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemVerdeClaro1ActionPerformed(evt);
+            }
+        });
+        jMenu13.add(jMenuItemVerdeClaro1);
+
+        jMenuItemSalmon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconosColores/salmon.png"))); // NOI18N
+        jMenuItemSalmon.setText("Salmon");
+        jMenuItemSalmon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemSalmonActionPerformed(evt);
+            }
+        });
+        jMenu13.add(jMenuItemSalmon);
+
+        jMenuItemMasColores1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconosColores/pick_color.png"))); // NOI18N
+        jMenuItemMasColores1.setText("Mas Colores");
+        jMenuItemMasColores1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemMasColores1ActionPerformed(evt);
+            }
+        });
+        jMenu13.add(jMenuItemMasColores1);
 
         jMenu6.add(jMenu13);
 
@@ -1286,6 +1482,525 @@ private void jMenuItem19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
              jTextAreaProto.setFont(fuente);
 }//GEN-LAST:event_jMenuItem19ActionPerformed
 
+    private void jMenuItemMocasinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMocasinActionPerformed
+        // TODO add your handling code here:
+        Color mocasin = new Color(255, 228, 181);
+        jTextAreaInfoGeneral.setBackground(mocasin);
+        jTextArea1.setBackground(mocasin);
+        jTextAreaConexionesEntrantes.setBackground(mocasin);
+        jTextAreaInfoCPU.setBackground(mocasin);
+        jTextAreaInfoDriver.setBackground(mocasin);
+        jTextAreaInfoFirewall.setBackground(mocasin);
+        jTextAreaInfoRAM.setBackground(mocasin);
+        jTextAreaInformacionDeRed.setBackground(mocasin);
+        jTextAreaInicio.setBackground(mocasin);
+        jTextAreaParticiones.setBackground(mocasin);
+        jTextAreaProcesos.setBackground(mocasin);
+        jTextAreaProto.setBackground(mocasin);
+        jTextField1.setBackground(mocasin);
+        textNombreProceso.setBackground(mocasin);
+        
+       
+        
+        
+    }//GEN-LAST:event_jMenuItemMocasinActionPerformed
+
+    private void jMenuItemCardoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCardoActionPerformed
+        // TODO add your handling code here:
+          Color cardo = new Color(216, 191, 216);
+       jTextAreaInfoGeneral.setBackground(cardo);
+       jTextArea1.setBackground(cardo);
+       jTextAreaConexionesEntrantes.setBackground(cardo);
+       jTextAreaInfoCPU.setBackground(cardo);
+       jTextAreaInfoDriver.setBackground(cardo);
+       jTextAreaInfoFirewall.setBackground(cardo);
+       jTextAreaInfoRAM.setBackground(cardo);
+       jTextAreaInformacionDeRed.setBackground(cardo);
+       jTextAreaInicio.setBackground(cardo);
+       jTextAreaParticiones.setBackground(cardo);
+       jTextAreaProcesos.setBackground(cardo);
+       jTextAreaProto.setBackground(cardo);
+       jTextField1.setBackground(cardo);
+       textNombreProceso.setBackground(cardo);
+       
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jMenuItemCardoActionPerformed
+
+    private void jMenuItemNegro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemNegro1ActionPerformed
+        // TODO add your handling code here:
+        jTextAreaInfoGeneral.setBackground(Color.decode("000000"));
+        jTextArea1.setBackground(Color.decode("000000"));
+        jTextAreaConexionesEntrantes.setBackground(Color.decode("000000"));
+        jTextAreaInfoCPU.setBackground(Color.decode("000000"));
+        jTextAreaInfoDriver.setBackground(Color.decode("000000"));
+        jTextAreaInfoFirewall.setBackground(Color.decode("000000"));
+        jTextAreaInfoRAM.setBackground(Color.decode("000000"));
+        jTextAreaInformacionDeRed.setBackground(Color.decode("000000"));
+        jTextAreaInicio.setBackground(Color.decode("000000"));
+        jTextAreaParticiones.setBackground(Color.decode("000000"));
+        jTextAreaProcesos.setBackground(Color.decode("000000"));
+        jTextAreaProto.setBackground(Color.decode("000000"));
+        jTextField1.setBackground(Color.decode("000000"));
+        textNombreProceso.setBackground(Color.decode("000000"));
+       
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jMenuItemNegro1ActionPerformed
+
+    private void jMenuItemRojoOscuro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRojoOscuro1ActionPerformed
+        // TODO add your handling code here:
+         Color rojo_obs = new Color(0xc00000);
+        jTextAreaInfoGeneral.setBackground(rojo_obs);
+        jTextArea1.setBackground(rojo_obs);
+        jTextAreaConexionesEntrantes.setBackground(rojo_obs);
+        jTextAreaInfoCPU.setBackground(rojo_obs);
+        jTextAreaInfoDriver.setBackground(rojo_obs);
+        jTextAreaInfoFirewall.setBackground(rojo_obs);
+        jTextAreaInfoRAM.setBackground(rojo_obs);
+        jTextAreaInformacionDeRed.setBackground(rojo_obs);
+        jTextAreaInicio.setBackground(rojo_obs);
+        jTextAreaParticiones.setBackground(rojo_obs);
+        jTextAreaProcesos.setBackground(rojo_obs);
+        jTextAreaProto.setBackground(rojo_obs);
+        jTextField1.setBackground(rojo_obs);
+        textNombreProceso.setBackground(rojo_obs);
+        
+        
+        
+        
+        
+        
+       
+    }//GEN-LAST:event_jMenuItemRojoOscuro1ActionPerformed
+
+    private void jMenuItemBeigeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBeigeActionPerformed
+        // TODO add your handling code here:
+          Color beige = new Color(255, 255, 204);
+       jTextAreaInfoGeneral.setBackground(beige);
+       jTextArea1.setBackground(beige);
+       jTextAreaConexionesEntrantes.setBackground(beige);
+       jTextAreaInfoCPU.setBackground(beige);
+       jTextAreaInfoDriver.setBackground(beige);
+       jTextAreaInfoFirewall.setBackground(beige);
+       jTextAreaInfoRAM.setBackground(beige);
+       jTextAreaInformacionDeRed.setBackground(beige);
+       jTextAreaInicio.setBackground(beige);
+       jTextAreaParticiones.setBackground(beige);
+       jTextAreaProcesos.setBackground(beige);
+       jTextAreaProto.setBackground(beige);
+       jTextField1.setBackground(beige);
+       textNombreProceso.setBackground(beige);
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jMenuItemBeigeActionPerformed
+
+    private void jMenuItemAzulClaro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAzulClaro1ActionPerformed
+        // TODO add your handling code here:
+       Color azul = new Color(0x0070c0);
+            jTextAreaInfoGeneral.setBackground(azul); 
+            jTextArea1.setBackground(azul); 
+        jTextAreaConexionesEntrantes.setBackground(azul); 
+        jTextAreaInfoCPU.setBackground(azul); 
+        jTextAreaInfoDriver.setBackground(azul); 
+        jTextAreaInfoFirewall.setBackground(azul); 
+        jTextAreaInfoRAM.setBackground(azul); 
+        jTextAreaInformacionDeRed.setBackground(azul); 
+        jTextAreaInicio.setBackground(azul); 
+        jTextAreaParticiones.setBackground(azul); 
+        jTextAreaProcesos.setBackground(azul); 
+        jTextAreaProto.setBackground(azul); 
+        jTextField1.setBackground(azul); 
+        textNombreProceso.setBackground(azul); 
+        
+        
+      
+       
+      
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jMenuItemAzulClaro1ActionPerformed
+
+    private void jMenuItemAquaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAquaActionPerformed
+        // TODO add your handling code here:
+        Color aqua = new Color(0, 255, 255);
+        jTextAreaInfoGeneral.setBackground(aqua);
+        jTextArea1.setBackground(aqua);
+        jTextAreaConexionesEntrantes.setBackground(aqua);
+        jTextAreaInfoCPU.setBackground(aqua);
+        jTextAreaInfoDriver.setBackground(aqua);
+        jTextAreaInfoFirewall.setBackground(aqua);
+        jTextAreaInfoRAM.setBackground(aqua);
+        jTextAreaInformacionDeRed.setBackground(aqua);
+        jTextAreaInicio.setBackground(aqua);
+        jTextAreaParticiones.setBackground(aqua);
+        jTextAreaProcesos.setBackground(aqua);
+        jTextAreaProto.setBackground(aqua);
+        jTextField1.setBackground(aqua);
+        textNombreProceso.setBackground(aqua);
+        
+        
+        
+    }//GEN-LAST:event_jMenuItemAquaActionPerformed
+
+    private void jMenuItemGrisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGrisActionPerformed
+        // TODO add your handling code here:
+        Color gris = new Color(217, 217, 217);
+        jTextAreaInfoGeneral.setBackground(gris);
+        jTextArea1.setBackground(gris);
+        jTextAreaConexionesEntrantes.setBackground(gris);
+        jTextAreaInfoCPU.setBackground(gris);
+        jTextAreaInfoDriver.setBackground(gris);
+        jTextAreaInfoFirewall.setBackground(gris);
+        jTextAreaInfoRAM.setBackground(gris);
+        jTextAreaInformacionDeRed.setBackground(gris);
+        jTextAreaInicio.setBackground(gris);
+        jTextAreaParticiones.setBackground(gris);
+        jTextAreaProcesos.setBackground(gris);
+        jTextAreaProto.setBackground(gris);
+        jTextField1.setBackground(gris);
+        textNombreProceso.setBackground(gris);
+        
+        
+        
+    }//GEN-LAST:event_jMenuItemGrisActionPerformed
+
+    private void jMenuItemVerdeOlivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemVerdeOlivaActionPerformed
+        // TODO add your handling code here:
+        Color verdeOliva = new Color(202, 255, 112);
+        jTextAreaInfoGeneral.setBackground(verdeOliva);
+        jTextArea1.setBackground(verdeOliva);
+        jTextAreaConexionesEntrantes.setBackground(verdeOliva);
+        jTextAreaInfoCPU.setBackground(verdeOliva);
+        jTextAreaInfoDriver.setBackground(verdeOliva);
+        jTextAreaInfoFirewall.setBackground(verdeOliva);
+        jTextAreaInfoRAM.setBackground(verdeOliva);
+        jTextAreaInformacionDeRed.setBackground(verdeOliva);
+        jTextAreaInicio.setBackground(verdeOliva);
+        jTextAreaParticiones.setBackground(verdeOliva);
+        jTextAreaProcesos.setBackground(verdeOliva);
+        jTextAreaProto.setBackground(verdeOliva);
+        jTextField1.setBackground(verdeOliva);
+        textNombreProceso.setBackground(verdeOliva);
+       
+        
+        
+        
+    }//GEN-LAST:event_jMenuItemVerdeOlivaActionPerformed
+
+    private void jMenuItemColores2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemColores2ActionPerformed
+        // TODO add your handling code here:
+        Color newColor = JColorChooser.showDialog(this, "Choose Background Color", jTextAreaInfoGeneral.getBackground());
+
+        if (newColor != null) {
+           jTextAreaInfoGeneral.setBackground(newColor);
+           jTextArea1.setBackground(newColor);
+           jTextAreaConexionesEntrantes.setBackground(newColor);
+           jTextAreaInfoCPU.setBackground(newColor);
+           jTextAreaInfoDriver.setBackground(newColor);
+           jTextAreaInfoFirewall.setBackground(newColor);
+           jTextAreaInfoRAM.setBackground(newColor);
+           jTextAreaInformacionDeRed.setBackground(newColor);
+           jTextAreaInicio.setBackground(newColor);
+           jTextAreaParticiones.setBackground(newColor);
+           jTextAreaProcesos.setBackground(newColor);
+           jTextAreaProto.setBackground(newColor);
+           jTextField1.setBackground(newColor);
+           textNombreProceso.setBackground(newColor);
+      
+           
+           
+           
+           
+        }
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jMenuItemColores2ActionPerformed
+
+    private void jMenuItemNegroTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemNegroTextActionPerformed
+        // TODO add your handling code here:
+             jTextAreaInfoGeneral.setForeground(Color.decode("000000"));
+             jTextArea1.setForeground(Color.decode("000000"));
+             jTextAreaConexionesEntrantes.setForeground(Color.decode("000000"));
+             jTextAreaInfoCPU.setForeground(Color.decode("000000"));
+             jTextAreaInfoDriver.setForeground(Color.decode("000000"));
+             jTextAreaInfoFirewall.setForeground(Color.decode("000000"));
+             jTextAreaInfoRAM.setForeground(Color.decode("000000"));
+             jTextAreaInformacionDeRed.setForeground(Color.decode("000000"));
+             jTextAreaInicio.setForeground(Color.decode("000000"));
+             jTextAreaParticiones.setForeground(Color.decode("000000"));
+             jTextAreaProcesos.setForeground(Color.decode("000000"));
+             jTextAreaProto.setForeground(Color.decode("000000"));
+             jTextField1.setForeground(Color.decode("000000"));
+             textNombreProceso.setForeground(Color.decode("000000"));
+      
+        
+        
+        
+        
+    }//GEN-LAST:event_jMenuItemNegroTextActionPerformed
+
+    private void jMenuItemRojo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRojo1ActionPerformed
+       // TODO add your handling code here:
+         Color rojo = new Color(0xff0000);
+        jTextAreaInfoGeneral.setForeground(rojo);  
+        jTextArea1.setForeground(rojo);  
+        jTextAreaConexionesEntrantes.setForeground(rojo);  
+        jTextAreaInfoCPU.setForeground(rojo);  
+        jTextAreaInfoDriver.setForeground(rojo);  
+        jTextAreaInfoFirewall.setForeground(rojo);  
+        jTextAreaInfoRAM.setForeground(rojo);   
+        jTextAreaInformacionDeRed.setForeground(rojo);  
+        jTextAreaInicio.setForeground(rojo);  
+        jTextAreaParticiones.setForeground(rojo);  
+        jTextAreaProcesos.setForeground(rojo);  
+        jTextAreaProto.setForeground(rojo);  
+        jTextField1.setForeground(rojo);  
+        textNombreProceso.setForeground(rojo);  
+       
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jMenuItemRojo1ActionPerformed
+
+    private void jMenuItemAqua1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAqua1ActionPerformed
+        // TODO add your handling code here:
+        Color aqua = new Color(0, 255, 255);
+          jTextAreaInfoGeneral.setForeground(aqua);
+          jTextArea1.setForeground(aqua);
+          jTextAreaConexionesEntrantes.setForeground(aqua);
+          jTextAreaInfoCPU.setForeground(aqua);
+          jTextAreaInfoDriver.setForeground(aqua);
+          jTextAreaInfoFirewall.setForeground(aqua);
+          jTextAreaInfoRAM.setForeground(aqua);
+          jTextAreaInformacionDeRed.setForeground(aqua);
+          jTextAreaInicio.setForeground(aqua);
+          jTextAreaParticiones.setForeground(aqua);
+          jTextAreaProcesos.setForeground(aqua);
+          jTextAreaProto.setForeground(aqua);
+          jTextField1.setForeground(aqua);
+          textNombreProceso.setForeground(aqua);
+       
+        
+        
+    }//GEN-LAST:event_jMenuItemAqua1ActionPerformed
+
+    private void jMenuItemNaranja1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemNaranja1ActionPerformed
+        // TODO add your handling code here:
+         Color naranja = new Color(0xffc000);
+           jTextAreaInfoGeneral.setForeground(naranja);
+           jTextArea1.setForeground(naranja);
+           jTextAreaConexionesEntrantes.setForeground(naranja);
+           jTextAreaInfoCPU.setForeground(naranja);
+           jTextAreaInfoDriver.setForeground(naranja);
+           jTextAreaInfoFirewall.setForeground(naranja);
+           jTextAreaInfoRAM.setForeground(naranja);
+           jTextAreaInformacionDeRed.setForeground(naranja);
+           jTextAreaInicio.setForeground(naranja);
+           jTextAreaParticiones.setForeground(naranja);
+           jTextAreaProcesos.setForeground(naranja);
+           jTextAreaProto.setForeground(naranja);
+           jTextField1.setForeground(naranja);
+           textNombreProceso.setForeground(naranja);
+          
+        
+        
+    }//GEN-LAST:event_jMenuItemNaranja1ActionPerformed
+
+    private void jMenuItemAmarillo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAmarillo1ActionPerformed
+        // TODO add your handling code here:
+         jTextAreaInfoGeneral.setForeground(Color.YELLOW);
+         jTextArea1.setForeground(Color.YELLOW);
+       jTextAreaConexionesEntrantes.setForeground(Color.YELLOW);
+       jTextAreaInfoCPU.setForeground(Color.YELLOW);
+       jTextAreaInfoDriver.setForeground(Color.YELLOW);
+       jTextAreaInfoFirewall.setForeground(Color.YELLOW);
+       jTextAreaInfoRAM.setForeground(Color.YELLOW);
+       jTextAreaInformacionDeRed.setForeground(Color.YELLOW);
+       jTextAreaInicio.setForeground(Color.YELLOW);
+       jTextAreaParticiones.setForeground(Color.YELLOW);
+       jTextAreaProcesos.setForeground(Color.YELLOW);
+       jTextAreaProto.setForeground(Color.YELLOW);
+       jTextField1.setForeground(Color.YELLOW);
+       textNombreProceso.setForeground(Color.YELLOW);
+       
+      
+      
+       
+      
+      
+       
+        
+        
+        
+        
+    }//GEN-LAST:event_jMenuItemAmarillo1ActionPerformed
+
+    private void jMenuItemCafeClaroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCafeClaroActionPerformed
+        // TODO add your handling code here:
+        Color cafeClaro = new Color(205, 102, 29);
+           jTextAreaInfoGeneral.setForeground(cafeClaro);
+           jTextArea1.setForeground(cafeClaro);
+           jTextAreaConexionesEntrantes.setForeground(cafeClaro);
+           jTextAreaInfoCPU.setForeground(cafeClaro);
+           jTextAreaInfoDriver.setForeground(cafeClaro);
+           jTextAreaInfoFirewall.setForeground(cafeClaro);
+           jTextAreaInfoRAM.setForeground(cafeClaro);
+           jTextAreaInformacionDeRed.setForeground(cafeClaro);
+           jTextAreaInicio.setForeground(cafeClaro);
+           jTextAreaParticiones.setForeground(cafeClaro);
+           jTextAreaProcesos.setForeground(cafeClaro);
+           jTextAreaProto.setForeground(cafeClaro);
+           jTextField1.setForeground(cafeClaro);
+           textNombreProceso.setForeground(cafeClaro);
+       
+        
+        
+        
+    }//GEN-LAST:event_jMenuItemCafeClaroActionPerformed
+
+    private void jMenuItemMarronRosaseoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMarronRosaseoActionPerformed
+        // TODO add your handling code here:
+        Color marronRosaseo = new Color(255, 193, 193);
+        jTextAreaInfoGeneral.setForeground(marronRosaseo);
+        jTextArea1.setForeground(marronRosaseo);
+        jTextAreaConexionesEntrantes.setForeground(marronRosaseo);
+        jTextAreaInfoCPU.setForeground(marronRosaseo);
+        jTextAreaInfoDriver.setForeground(marronRosaseo);
+        jTextAreaInfoFirewall.setForeground(marronRosaseo);
+        jTextAreaInfoRAM.setForeground(marronRosaseo);
+        jTextAreaInformacionDeRed.setForeground(marronRosaseo);
+        jTextAreaInicio.setForeground(marronRosaseo);
+        jTextAreaParticiones.setForeground(marronRosaseo);
+        jTextAreaProcesos.setForeground(marronRosaseo);
+        jTextAreaProto.setForeground(marronRosaseo);
+        jTextField1.setForeground(marronRosaseo);
+        textNombreProceso.setForeground(marronRosaseo);
+        
+        
+        
+    }//GEN-LAST:event_jMenuItemMarronRosaseoActionPerformed
+
+    private void jMenuItemVerde1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemVerde1ActionPerformed
+        // TODO add your handling code here:
+         Color verde = new Color(0x00b050);
+        jTextAreaInfoGeneral.setForeground(verde);
+        jTextArea1.setForeground(verde);
+        jTextAreaConexionesEntrantes.setForeground(verde);
+        jTextAreaInfoCPU.setForeground(verde);
+        jTextAreaInfoDriver.setForeground(verde);
+        jTextAreaInfoFirewall.setForeground(verde);
+        jTextAreaInfoRAM.setForeground(verde);
+        jTextAreaInformacionDeRed.setForeground(verde);
+        jTextAreaInicio.setForeground(verde);
+        jTextAreaParticiones.setForeground(verde);
+        jTextAreaProcesos.setForeground(verde);
+        jTextAreaProto.setForeground(verde);
+        jTextField1.setForeground(verde);
+        textNombreProceso.setForeground(verde);
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jMenuItemVerde1ActionPerformed
+
+    private void jMenuItemVerdeClaro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemVerdeClaro1ActionPerformed
+        // TODO add your handling code here:
+         Color verde_c = new Color(0xc92d050);
+           jTextAreaInfoGeneral.setForeground(verde_c);
+           jTextArea1.setForeground(verde_c);
+           jTextAreaConexionesEntrantes.setForeground(verde_c);
+           jTextAreaInfoCPU.setForeground(verde_c);
+           jTextAreaInfoDriver.setForeground(verde_c);
+           jTextAreaInfoFirewall.setForeground(verde_c);
+           jTextAreaInfoRAM.setForeground(verde_c);
+           jTextAreaInformacionDeRed.setForeground(verde_c);
+           jTextAreaInicio.setForeground(verde_c);
+           jTextAreaParticiones.setForeground(verde_c);
+           jTextAreaProcesos.setForeground(verde_c);
+           jTextAreaProto.setForeground(verde_c);
+           jTextField1.setForeground(verde_c);
+           textNombreProceso.setForeground(verde_c);
+       
+        
+        
+        
+    }//GEN-LAST:event_jMenuItemVerdeClaro1ActionPerformed
+
+    private void jMenuItemSalmonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSalmonActionPerformed
+        // TODO add your handling code here:
+        Color salmon = new Color(255, 160, 122);
+        jTextAreaInfoGeneral.setForeground(salmon);
+        jTextArea1.setForeground(salmon);
+        jTextAreaConexionesEntrantes.setForeground(salmon);
+        jTextAreaInfoCPU.setForeground(salmon);
+        jTextAreaInfoDriver.setForeground(salmon);
+        jTextAreaInfoFirewall.setForeground(salmon);
+        jTextAreaInfoRAM.setForeground(salmon);
+        jTextAreaInformacionDeRed.setForeground(salmon);
+        jTextAreaInicio.setForeground(salmon);
+        jTextAreaParticiones.setForeground(salmon);
+        jTextAreaProcesos.setForeground(salmon);
+        jTextAreaProto.setForeground(salmon);
+        jTextField1.setForeground(salmon);
+        textNombreProceso.setForeground(salmon);
+        
+        
+        
+       
+        
+        
+        
+        
+    }//GEN-LAST:event_jMenuItemSalmonActionPerformed
+
+    private void jMenuItemMasColores1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMasColores1ActionPerformed
+        // TODO add your handling code here:
+         Color newColor = JColorChooser.showDialog(this, "Choose Background Color", jTextAreaInfoGeneral.getForeground());
+
+        if (newColor != null) {
+        jTextAreaInfoGeneral.setForeground(newColor);
+        jTextArea1.setForeground(newColor);
+        jTextAreaConexionesEntrantes.setForeground(newColor);
+        jTextAreaInfoCPU.setForeground(newColor);
+        jTextAreaInfoDriver.setForeground(newColor);
+        jTextAreaInfoFirewall.setForeground(newColor);
+        jTextAreaInfoRAM.setForeground(newColor);
+        jTextAreaInformacionDeRed.setForeground(newColor);
+        jTextAreaInicio.setForeground(newColor);
+        jTextAreaParticiones.setForeground(newColor);
+        jTextAreaProcesos.setForeground(newColor);
+        jTextAreaProto.setForeground(newColor);
+        jTextField1.setForeground(newColor);
+        textNombreProceso.setForeground(newColor);
+       
+        
+        }
+        
+    }//GEN-LAST:event_jMenuItemMasColores1ActionPerformed
+
     private void guardar() {
         String title = jTabbedPane1.getTitleAt(jTabbedPane1.getSelectedIndex());
         try {
@@ -1398,12 +2113,29 @@ private void jMenuItem19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JMenuItem jMenuItem19;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenuItem jMenuItemAmarillo1;
+    private javax.swing.JMenuItem jMenuItemAqua;
+    private javax.swing.JMenuItem jMenuItemAqua1;
+    private javax.swing.JMenuItem jMenuItemAzulClaro1;
+    private javax.swing.JMenuItem jMenuItemBeige;
+    private javax.swing.JMenuItem jMenuItemCafeClaro;
+    private javax.swing.JMenuItem jMenuItemCardo;
+    private javax.swing.JMenuItem jMenuItemColores2;
+    private javax.swing.JMenuItem jMenuItemGris;
+    private javax.swing.JMenuItem jMenuItemMarronRosaseo;
+    private javax.swing.JMenuItem jMenuItemMasColores1;
+    private javax.swing.JMenuItem jMenuItemMocasin;
+    private javax.swing.JMenuItem jMenuItemNaranja1;
+    private javax.swing.JMenuItem jMenuItemNegro1;
+    private javax.swing.JMenuItem jMenuItemNegroText;
+    private javax.swing.JMenuItem jMenuItemRojo1;
+    private javax.swing.JMenuItem jMenuItemRojoOscuro1;
+    private javax.swing.JMenuItem jMenuItemSalmon;
+    private javax.swing.JMenuItem jMenuItemVerde1;
+    private javax.swing.JMenuItem jMenuItemVerdeClaro1;
+    private javax.swing.JMenuItem jMenuItemVerdeOliva;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
