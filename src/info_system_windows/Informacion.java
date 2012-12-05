@@ -10,6 +10,7 @@
  */
 package info_system_windows;
 
+import java.awt.Font;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -37,11 +38,18 @@ import org.hyperic.sigar.Swap;
 public class Informacion extends javax.swing.JFrame {
 
     /** Creates new form form */
+    
+     Font fuente;
+    int tamañofuente;  
+    int estilo;
+    String nombrefuente;
+    
       public ArrayList<String> listConexionesEntrantes;
       public ArrayList<String> listproto;
     /** Creates new form ver */
     
      private void apagado(String procesocmd){
+         
            
         try {
             Process cmd = Runtime.getRuntime().exec(procesocmd);
@@ -109,6 +117,10 @@ public class Informacion extends javax.swing.JFrame {
     
     
     public Informacion() {
+        
+                tamañofuente = 12;
+        fuente = new Font(nombrefuente, estilo, tamañofuente);
+        
         try {
             initComponents();
             imprimirInfoCPU();
@@ -360,9 +372,17 @@ private void verProcesos(){
         jMenu8 = new javax.swing.JMenu();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem15 = new javax.swing.JMenuItem();
+        jMenuItem16 = new javax.swing.JMenuItem();
+        jMenuItem17 = new javax.swing.JMenuItem();
+        jMenuItem18 = new javax.swing.JMenuItem();
+        jMenuItem19 = new javax.swing.JMenuItem();
         jMenu9 = new javax.swing.JMenu();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         jMenuItem12 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
+        jMenuItem13 = new javax.swing.JMenuItem();
+        jMenuItem14 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenu10 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -400,7 +420,7 @@ private void verProcesos(){
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/ItsePortada.jpg"))); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 24));
         jLabel6.setText("INFORMACIÓN  DEL  SISTEMA");
 
         jTextAreaInicio.setColumns(20);
@@ -439,12 +459,12 @@ private void verProcesos(){
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25)
                         .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("inicio", jPanel11);
 
-        jLabel1.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 3, 24));
         jLabel1.setText("Información General:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -454,13 +474,13 @@ private void verProcesos(){
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(464, Short.MAX_VALUE))
+                .addContainerGap(510, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addContainerGap(415, Short.MAX_VALUE))
+                .addContainerGap(434, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Información General", jPanel1);
@@ -475,14 +495,14 @@ private void verProcesos(){
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 735, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 739, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -498,14 +518,14 @@ private void verProcesos(){
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 735, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 739, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -525,7 +545,7 @@ private void verProcesos(){
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -544,7 +564,7 @@ private void verProcesos(){
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14));
         jLabel2.setText("Matar Proceso");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -559,13 +579,13 @@ private void verProcesos(){
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(labelNombreProceso)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(textNombreProceso, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
+                                .addComponent(textNombreProceso, javax.swing.GroupLayout.DEFAULT_SIZE, 523, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(buttonMatar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel2)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 681, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 739, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -597,11 +617,11 @@ private void verProcesos(){
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE))
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 749, Short.MAX_VALUE))
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addComponent(jLabel3)
-                .addGap(0, 646, Short.MAX_VALUE))
+                .addGap(0, 704, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -609,7 +629,7 @@ private void verProcesos(){
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Informacion de Red", jPanel6);
@@ -624,11 +644,11 @@ private void verProcesos(){
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE))
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 749, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 444, Short.MAX_VALUE)
+            .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Conexiones Entrantes", jPanel7);
@@ -666,7 +686,7 @@ private void verProcesos(){
                                 .addComponent(jButton1)
                                 .addGap(48, 48, 48)
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(418, Short.MAX_VALUE))
+                .addContainerGap(436, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -679,7 +699,7 @@ private void verProcesos(){
                     .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2)
-                .addContainerGap(253, Short.MAX_VALUE))
+                .addContainerGap(278, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Programar Apagado", jPanel8);
@@ -703,12 +723,12 @@ private void verProcesos(){
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane9)
+            .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton4)
-                .addContainerGap())
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -735,14 +755,14 @@ private void verProcesos(){
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 735, Short.MAX_VALUE)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 739, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -777,8 +797,53 @@ private void verProcesos(){
         jMenu8.setText("Tamaño");
         jMenu8.add(jSeparator2);
 
-        jMenuItem10.setText("sdfghjkl");
+        jMenuItem10.setText("18");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
         jMenu8.add(jMenuItem10);
+
+        jMenuItem15.setText("20");
+        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem15ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jMenuItem15);
+
+        jMenuItem16.setText("22");
+        jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem16ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jMenuItem16);
+
+        jMenuItem17.setText("24");
+        jMenuItem17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem17ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jMenuItem17);
+
+        jMenuItem18.setText("26");
+        jMenuItem18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem18ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jMenuItem18);
+
+        jMenuItem19.setText("28");
+        jMenuItem19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem19ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jMenuItem19);
 
         jMenu5.add(jMenu8);
 
@@ -786,8 +851,37 @@ private void verProcesos(){
         jMenu9.setText("Fuentes");
         jMenu9.add(jSeparator3);
 
-        jMenuItem12.setText("asdfghjkl");
+        jMenuItem12.setText("MONOSPACED");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
         jMenu9.add(jMenuItem12);
+
+        jMenuItem11.setText("SERIF");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
+        jMenu9.add(jMenuItem11);
+
+        jMenuItem13.setText("DIALOG_INPUT");
+        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem13ActionPerformed(evt);
+            }
+        });
+        jMenu9.add(jMenuItem13);
+
+        jMenuItem14.setText("SANS_SERIF");
+        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem14ActionPerformed(evt);
+            }
+        });
+        jMenu9.add(jMenuItem14);
 
         jMenu5.add(jMenu9);
 
@@ -950,6 +1044,197 @@ private void buttonMatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
 System.exit(0);       // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+// TODO add your handling code here:
+    
+     nombrefuente  = Font.MONOSPACED;
+        fuente = new Font(nombrefuente, estilo, tamañofuente);
+
+      
+             jTextAreaInfoGeneral.setFont(fuente);
+             jTextAreaInfoCPU.setFont(fuente);
+             jTextAreaInfoRAM.setFont(fuente);
+             jTextAreaParticiones.setFont(fuente);
+             jTextAreaProcesos.setFont(fuente);
+             jTextArea1.setFont(fuente);
+             jTextAreaConexionesEntrantes.setFont(fuente);
+             jTextAreaInfoDriver.setFont(fuente);
+             jTextAreaInformacionDeRed.setFont(fuente);
+             jTextAreaInicio.setFont(fuente);
+             jTextAreaProto.setFont(fuente);
+}//GEN-LAST:event_jMenuItem12ActionPerformed
+
+private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+// TODO add your handling code here:
+    
+          nombrefuente  = Font.SERIF;
+      fuente = new Font(nombrefuente, estilo, tamañofuente);
+      
+             jTextAreaInfoGeneral.setFont(fuente);
+             jTextAreaInfoCPU.setFont(fuente);
+             jTextAreaInfoRAM.setFont(fuente);
+             jTextAreaParticiones.setFont(fuente);
+             jTextAreaProcesos.setFont(fuente);
+             jTextArea1.setFont(fuente);
+             jTextAreaConexionesEntrantes.setFont(fuente);
+             jTextAreaInfoDriver.setFont(fuente);
+             jTextAreaInformacionDeRed.setFont(fuente);
+             jTextAreaInicio.setFont(fuente);
+             jTextAreaProto.setFont(fuente);
+      
+}//GEN-LAST:event_jMenuItem11ActionPerformed
+
+private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+// TODO add your handling code here:
+    
+         nombrefuente  = Font.DIALOG_INPUT;
+        fuente = new Font(nombrefuente, estilo, tamañofuente);
+        
+             jTextAreaInfoGeneral.setFont(fuente);
+             jTextAreaInfoCPU.setFont(fuente);
+             jTextAreaInfoRAM.setFont(fuente);
+             jTextAreaParticiones.setFont(fuente);
+             jTextAreaProcesos.setFont(fuente);
+             jTextArea1.setFont(fuente);
+             jTextAreaConexionesEntrantes.setFont(fuente);
+             jTextAreaInfoDriver.setFont(fuente);
+             jTextAreaInformacionDeRed.setFont(fuente);
+             jTextAreaInicio.setFont(fuente);
+             jTextAreaProto.setFont(fuente);
+}//GEN-LAST:event_jMenuItem13ActionPerformed
+
+private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
+// TODO add your handling code here:
+    
+            nombrefuente  = Font.SANS_SERIF;
+        fuente = new Font(nombrefuente, estilo, tamañofuente);
+        
+            jTextAreaInfoGeneral.setFont(fuente);
+             jTextAreaInfoCPU.setFont(fuente);
+             jTextAreaInfoRAM.setFont(fuente);
+             jTextAreaParticiones.setFont(fuente);
+             jTextAreaProcesos.setFont(fuente);
+             jTextArea1.setFont(fuente);
+             jTextAreaConexionesEntrantes.setFont(fuente);
+             jTextAreaInfoDriver.setFont(fuente);
+             jTextAreaInformacionDeRed.setFont(fuente);
+             jTextAreaInicio.setFont(fuente);
+             jTextAreaProto.setFont(fuente);
+}//GEN-LAST:event_jMenuItem14ActionPerformed
+
+private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+// TODO add your handling code here:
+    
+            tamañofuente  = 18;
+        fuente = new Font(nombrefuente, estilo, tamañofuente);
+        
+        jTextAreaInfoGeneral.setFont(fuente);
+             jTextAreaInfoCPU.setFont(fuente);
+             jTextAreaInfoRAM.setFont(fuente);
+             jTextAreaParticiones.setFont(fuente);
+             jTextAreaProcesos.setFont(fuente);
+             jTextArea1.setFont(fuente);
+             jTextAreaConexionesEntrantes.setFont(fuente);
+             jTextAreaInfoDriver.setFont(fuente);
+             jTextAreaInformacionDeRed.setFont(fuente);
+             jTextAreaInicio.setFont(fuente);
+             jTextAreaProto.setFont(fuente);
+}//GEN-LAST:event_jMenuItem10ActionPerformed
+
+private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
+// TODO add your handling code here:
+    
+    tamañofuente  = 20;
+        fuente = new Font(nombrefuente, estilo, tamañofuente);
+        
+        jTextAreaInfoGeneral.setFont(fuente);
+             jTextAreaInfoCPU.setFont(fuente);
+             jTextAreaInfoRAM.setFont(fuente);
+             jTextAreaParticiones.setFont(fuente);
+             jTextAreaProcesos.setFont(fuente);
+             jTextArea1.setFont(fuente);
+             jTextAreaConexionesEntrantes.setFont(fuente);
+             jTextAreaInfoDriver.setFont(fuente);
+             jTextAreaInformacionDeRed.setFont(fuente);
+             jTextAreaInicio.setFont(fuente);
+             jTextAreaProto.setFont(fuente);
+}//GEN-LAST:event_jMenuItem15ActionPerformed
+
+private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
+// TODO add your handling code here:
+    
+    tamañofuente  = 22;
+        fuente = new Font(nombrefuente, estilo, tamañofuente);
+        
+        jTextAreaInfoGeneral.setFont(fuente);
+             jTextAreaInfoCPU.setFont(fuente);
+             jTextAreaInfoRAM.setFont(fuente);
+             jTextAreaParticiones.setFont(fuente);
+             jTextAreaProcesos.setFont(fuente);
+             jTextArea1.setFont(fuente);
+             jTextAreaConexionesEntrantes.setFont(fuente);
+             jTextAreaInfoDriver.setFont(fuente);
+             jTextAreaInformacionDeRed.setFont(fuente);
+             jTextAreaInicio.setFont(fuente);
+             jTextAreaProto.setFont(fuente);
+}//GEN-LAST:event_jMenuItem16ActionPerformed
+
+private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
+// TODO add your handling code here:
+    tamañofuente  = 24;
+        fuente = new Font(nombrefuente, estilo, tamañofuente);
+        
+        jTextAreaInfoGeneral.setFont(fuente);
+             jTextAreaInfoCPU.setFont(fuente);
+             jTextAreaInfoRAM.setFont(fuente);
+             jTextAreaParticiones.setFont(fuente);
+             jTextAreaProcesos.setFont(fuente);
+             jTextArea1.setFont(fuente);
+             jTextAreaConexionesEntrantes.setFont(fuente);
+             jTextAreaInfoDriver.setFont(fuente);
+             jTextAreaInformacionDeRed.setFont(fuente);
+             jTextAreaInicio.setFont(fuente);
+             jTextAreaProto.setFont(fuente);
+}//GEN-LAST:event_jMenuItem17ActionPerformed
+
+private void jMenuItem18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem18ActionPerformed
+// TODO add your handling code here:
+    
+    tamañofuente  = 26;
+        fuente = new Font(nombrefuente, estilo, tamañofuente);
+        
+        jTextAreaInfoGeneral.setFont(fuente);
+             jTextAreaInfoCPU.setFont(fuente);
+             jTextAreaInfoRAM.setFont(fuente);
+             jTextAreaParticiones.setFont(fuente);
+             jTextAreaProcesos.setFont(fuente);
+             jTextArea1.setFont(fuente);
+             jTextAreaConexionesEntrantes.setFont(fuente);
+             jTextAreaInfoDriver.setFont(fuente);
+             jTextAreaInformacionDeRed.setFont(fuente);
+             jTextAreaInicio.setFont(fuente);
+             jTextAreaProto.setFont(fuente);
+}//GEN-LAST:event_jMenuItem18ActionPerformed
+
+private void jMenuItem19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem19ActionPerformed
+// TODO add your handling code here:
+    
+    tamañofuente  = 28;
+        fuente = new Font(nombrefuente, estilo, tamañofuente);
+        
+        jTextAreaInfoGeneral.setFont(fuente);
+             jTextAreaInfoCPU.setFont(fuente);
+             jTextAreaInfoRAM.setFont(fuente);
+             jTextAreaParticiones.setFont(fuente);
+             jTextAreaProcesos.setFont(fuente);
+             jTextArea1.setFont(fuente);
+             jTextAreaConexionesEntrantes.setFont(fuente);
+             jTextAreaInfoDriver.setFont(fuente);
+             jTextAreaInformacionDeRed.setFont(fuente);
+             jTextAreaInicio.setFont(fuente);
+             jTextAreaProto.setFont(fuente);
+}//GEN-LAST:event_jMenuItem19ActionPerformed
+
     private void guardar() {
         String title = jTabbedPane1.getTitleAt(jTabbedPane1.getSelectedIndex());
         try {
@@ -1051,7 +1336,15 @@ System.exit(0);       // TODO add your handling code here:
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem13;
+    private javax.swing.JMenuItem jMenuItem14;
+    private javax.swing.JMenuItem jMenuItem15;
+    private javax.swing.JMenuItem jMenuItem16;
+    private javax.swing.JMenuItem jMenuItem17;
+    private javax.swing.JMenuItem jMenuItem18;
+    private javax.swing.JMenuItem jMenuItem19;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
