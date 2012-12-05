@@ -311,6 +311,9 @@ private void verProcesos(){
         jButton4 = new javax.swing.JButton();
         jScrollPane10 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jPanel10 = new javax.swing.JPanel();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        jTextAreaInfoDriver = new javax.swing.JTextArea();
 
         jTextAreaInfoGeneral.setColumns(20);
         jTextAreaInfoGeneral.setRows(5);
@@ -320,6 +323,9 @@ private void verProcesos(){
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
 
@@ -613,6 +619,29 @@ private void verProcesos(){
 
         jTabbedPane1.addTab("Protocolo ARP", jScrollPane8);
 
+        jTextAreaInfoDriver.setColumns(20);
+        jTextAreaInfoDriver.setRows(5);
+        jScrollPane11.setViewportView(jTextAreaInfoDriver);
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Driver ", jPanel10);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -681,6 +710,38 @@ private void buttonMatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         jTextArea1.setText(A);
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+           String s = null;
+                try {
+                       // Determinar en que SO estamos
+                        String so = System.getProperty("os.name");
+                      String  comando = "cmd /c driverquery";                    
+                                      
+                       // Ejcutamos el comando
+                        Process p = Runtime.getRuntime().exec(comando);
+
+                        BufferedReader stdInput = new BufferedReader(new InputStreamReader(
+                                        p.getInputStream()));
+
+                        BufferedReader stdError = new BufferedReader(new InputStreamReader(
+                                        p.getErrorStream()));
+
+                        // Leemos la salida del comando
+                        System.out.println("Esta es la salida standard del comando:\n");
+                        while ((s = stdInput.readLine()) != null) {
+                          jTextAreaInfoDriver.setText(jTextAreaInfoDriver.getText()+s+"\n");
+                                                 }                        
+                        // Leemos los errores si los hubiera
+                       
+                        
+                } catch (IOException e) {
+                        System.out.println("Excepcion: ");
+                        e.printStackTrace();
+                       
+                }  
+    }//GEN-LAST:event_formWindowOpened
+
 
     /**
      * @param args the command line arguments
@@ -727,6 +788,7 @@ private void buttonMatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -737,6 +799,7 @@ private void buttonMatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -749,6 +812,7 @@ private void buttonMatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextAreaConexionesEntrantes;
     private javax.swing.JTextArea jTextAreaInfoCPU;
+    private javax.swing.JTextArea jTextAreaInfoDriver;
     private javax.swing.JTextArea jTextAreaInfoGeneral;
     private javax.swing.JTextArea jTextAreaInfoRAM;
     private javax.swing.JTextArea jTextAreaInformacionDeRed;
