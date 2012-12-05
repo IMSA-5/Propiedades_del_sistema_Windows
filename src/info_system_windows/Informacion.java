@@ -35,6 +35,7 @@ public class Informacion extends javax.swing.JFrame {
 
     /** Creates new form form */
       public ArrayList<String> listConexionesEntrantes;
+      public ArrayList<String> listproto;
     /** Creates new form ver */
     
      private void apagado(String procesocmd){
@@ -62,7 +63,20 @@ public class Informacion extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(null, e, "Excepcion", javax.swing.JOptionPane.PLAIN_MESSAGE);
         }
     }
-     
+       private void comandoconsolaprotocolo(String pcmd){
+           listproto = new ArrayList<String>();
+        try {
+            Process cmd = Runtime.getRuntime().exec(pcmd);
+            cmd.waitFor();
+            BufferedReader buf = new BufferedReader(new InputStreamReader(cmd.getInputStream()));
+            String linea = "";
+            while ((linea = buf.readLine()) != null) {
+                listproto.add(linea.toString());
+            }
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(null, e, "Excepcion", javax.swing.JOptionPane.PLAIN_MESSAGE);
+        }
+    }
       public ArrayList<String> getListConexionesEntrantes() {
         return listConexionesEntrantes;       
     }
@@ -77,6 +91,17 @@ public class Informacion extends javax.swing.JFrame {
            
         }
     }
+ public ArrayList<String> getListSockets() {
+        return listproto;       
+    }
+ private void mostrarmeprotoarp() {
+        ArrayList<String> listSockets=listproto;
+        for (int i = 0; i < listSockets.size(); i++) {
+           jTextAreaProto.append(listSockets.get(i) + '\n');  
+          // listas.getListSockets().get(4).charAt(3);      
+        }
+    }
+ 
 
     
     
@@ -215,6 +240,7 @@ jTextAreaParticiones.append("root: " + root.getAbsolutePath()+"\n");
 }
     }
     
+    
 //muestra los procesos en ejecucion    
 private void verProcesos(){
         try {
@@ -278,6 +304,13 @@ private void verProcesos(){
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        jPanel9 = new javax.swing.JPanel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jTextAreaProto = new javax.swing.JTextArea();
+        jButton4 = new javax.swing.JButton();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         jTextAreaInfoGeneral.setColumns(20);
         jTextAreaInfoGeneral.setRows(5);
@@ -306,13 +339,13 @@ private void verProcesos(){
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(395, Short.MAX_VALUE))
+                .addContainerGap(448, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addContainerGap(429, Short.MAX_VALUE))
+                .addContainerGap(455, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Información General", jPanel1);
@@ -327,14 +360,14 @@ private void verProcesos(){
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 666, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -350,14 +383,14 @@ private void verProcesos(){
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 666, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -374,13 +407,13 @@ private void verProcesos(){
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(151, Short.MAX_VALUE))
+                .addContainerGap(160, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -414,13 +447,13 @@ private void verProcesos(){
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(labelNombreProceso)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(textNombreProceso, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
+                                .addComponent(textNombreProceso, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(buttonMatar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel2)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -452,7 +485,7 @@ private void verProcesos(){
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE))
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 687, Short.MAX_VALUE))
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addComponent(jLabel3)
@@ -464,7 +497,7 @@ private void verProcesos(){
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Informacion de Red", jPanel6);
@@ -479,11 +512,11 @@ private void verProcesos(){
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE))
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 687, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
+            .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Conexiones Entrantes", jPanel7);
@@ -534,10 +567,51 @@ private void verProcesos(){
                     .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2)
-                .addContainerGap(260, Short.MAX_VALUE))
+                .addContainerGap(299, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Programar Apagado", jPanel8);
+
+        jTextAreaProto.setColumns(20);
+        jTextAreaProto.setRows(5);
+        jScrollPane9.setViewportView(jTextAreaProto);
+
+        jButton4.setText("Definición Protocolo");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane10.setViewportView(jTextArea1);
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane9)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton4)
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE))
+        );
+
+        jScrollPane8.setViewportView(jPanel9);
+
+        jTabbedPane1.addTab("Protocolo ARP", jScrollPane8);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -556,7 +630,9 @@ private void verProcesos(){
     }// </editor-fold>//GEN-END:initComponents
 
 private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
- 
+ jTextAreaProto.setText("");
+        comandoconsolaprotocolo("arp -a");
+         mostrarmeprotoarp();
 }//GEN-LAST:event_formWindowActivated
 
 private void buttonMatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMatarActionPerformed
@@ -600,6 +676,11 @@ private void buttonMatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         apagado("shutdown -a");
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+      String A="Muestra y permite modificar las tablas del protocolo ARP,"+ "\n" +  "encargado de convertir las direcciones IP de cada ordenador" +"\n"+ "en direcciones MAC (dirección física única de cada tarjeta de red).";  
+        jTextArea1.setText(A);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -640,6 +721,7 @@ private void buttonMatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JButton buttonMatar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -652,14 +734,19 @@ private void buttonMatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextAreaConexionesEntrantes;
     private javax.swing.JTextArea jTextAreaInfoCPU;
     private javax.swing.JTextArea jTextAreaInfoGeneral;
@@ -667,6 +754,7 @@ private void buttonMatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JTextArea jTextAreaInformacionDeRed;
     private javax.swing.JTextArea jTextAreaParticiones;
     private javax.swing.JTextArea jTextAreaProcesos;
+    private javax.swing.JTextArea jTextAreaProto;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel labelNombreProceso;
     private javax.swing.JTextField textNombreProceso;
