@@ -6,7 +6,7 @@ package info_system_windows;
 
 /**
  *
- * @author Ab
+ * @author 
 public class Systeminfo_windows {
 
  */
