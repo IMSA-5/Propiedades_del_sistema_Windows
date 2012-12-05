@@ -219,6 +219,30 @@ public class Informacion extends javax.swing.JFrame {
         }
      }
     
+     public void configurarfirewall()
+{
+    String s = null;
+    try {
+        // Determinar en que SO estamos
+        String so = System.getProperty("os.name");
+        String comando = "cmd /c netsh advfirewall show currentprofile";
+        // Ejcutamos el comando
+        Process p = Runtime.getRuntime().exec(comando);
+        BufferedReader stdInput = new BufferedReader(new InputStreamReader(
+                p.getInputStream()));
+
+
+        System.out.println("Esta es la salida standard del comando:\n");
+        while ((s = stdInput.readLine()) != null) {
+            jTextAreaInfoFirewall.setText(jTextAreaInfoFirewall.getText() + s + "\n");
+        }
+        // Leemos los errores si los hubiera                                       
+    } catch (IOException e) {
+        System.out.println("Excepcion: ");
+        e.printStackTrace();
+
+    }
+}
     public void imprimirInfoCPU() {
         sigar = new Sigar();
         CpuInfo[] infos = null;
@@ -363,6 +387,9 @@ private void verProcesos(){
         jPanel10 = new javax.swing.JPanel();
         jScrollPane11 = new javax.swing.JScrollPane();
         jTextAreaInfoDriver = new javax.swing.JTextArea();
+        jPanel12 = new javax.swing.JPanel();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        jTextAreaInfoFirewall = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -420,7 +447,7 @@ private void verProcesos(){
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/ItsePortada.jpg"))); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 24));
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabel6.setText("INFORMACIÓN  DEL  SISTEMA");
 
         jTextAreaInicio.setColumns(20);
@@ -464,7 +491,7 @@ private void verProcesos(){
 
         jTabbedPane1.addTab("inicio", jPanel11);
 
-        jLabel1.setFont(new java.awt.Font("Arial", 3, 24));
+        jLabel1.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
         jLabel1.setText("Información General:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -564,7 +591,7 @@ private void verProcesos(){
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Matar Proceso");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -768,6 +795,29 @@ private void verProcesos(){
 
         jTabbedPane1.addTab("Driver ", jPanel10);
 
+        jTextAreaInfoFirewall.setColumns(20);
+        jTextAreaInfoFirewall.setRows(5);
+        jScrollPane13.setViewportView(jTextAreaInfoFirewall);
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 739, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Configuracion del Firewall", jPanel12);
+
         jMenu4.setText("Archivo");
 
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenesbt/save.png"))); // NOI18N
@@ -955,6 +1005,7 @@ private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:ev
  jTextAreaProto.setText("");
         comandoconsolaprotocolo("arp -a");
          mostrarmeprotoarp();
+         configurarfirewall();
 }//GEN-LAST:event_formWindowActivated
 
 private void buttonMatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMatarActionPerformed
@@ -1356,6 +1407,7 @@ private void jMenuItem19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1368,6 +1420,7 @@ private void jMenuItem19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1384,6 +1437,7 @@ private void jMenuItem19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JTextArea jTextAreaConexionesEntrantes;
     private javax.swing.JTextArea jTextAreaInfoCPU;
     private javax.swing.JTextArea jTextAreaInfoDriver;
+    private javax.swing.JTextArea jTextAreaInfoFirewall;
     private javax.swing.JTextArea jTextAreaInfoGeneral;
     private javax.swing.JTextArea jTextAreaInfoRAM;
     private javax.swing.JTextArea jTextAreaInformacionDeRed;
