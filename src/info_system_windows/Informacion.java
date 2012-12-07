@@ -279,7 +279,7 @@ private static String lookAdFeel = UIManager.getSystemLookAndFeelClassName();
         jTextAreaInfoCPU.append("Mhz\t\t" + info.getMhz()+"\n");
         jTextAreaInfoCPU.append("Total CPUs\t\t" + info.getTotalCores()+ "  "+ info.getModel()+"\n");
         jTextAreaInfoCPU.append("CPUs fisiscas\t\t" + info.getTotalSockets()+"\n");
-        jTextAreaInfoCPU.append("Nucleos por CPU\t" + info.getCoresPerSocket()+ "\n");
+        jTextAreaInfoCPU.append("Nucleos por CPU\t\t" + info.getCoresPerSocket()+ "\n");
        /* if ((info.getTotalCores() != info.getTotalSockets())
                 || (info.getCoresPerSocket() > info.getTotalCores())) {
             jTextAreaInfoCPU.append("CPUs físicas\t\t" + info.getTotalSockets());
